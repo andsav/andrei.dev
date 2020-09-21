@@ -1,0 +1,28 @@
+{
+  "name": "dotcom",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "vite build",
+    "lint": "prettier-standard ./src/**/*.vue ./src/**/*.js",
+    "dev": "vite",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "vue": "^3.0.0-rc.1"
+  },
+  "lint-staged": {
+    "*": ["prettier-standard --lint"]
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-eslint": "~4.5.6",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "eslint": "^7.9.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.3.0",
+    "prettier-standard": "^16.4.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "vite": "^1.0.0-rc.1"
+  }
+}
