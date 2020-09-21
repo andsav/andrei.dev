@@ -1,5 +1,6 @@
 <template>
   <Name msg="Hello" />
+  <button @click="toggleDarkMode">Hello</button>
 </template>
 
 <script>
@@ -10,8 +11,11 @@ export default {
   components: {
     Name
   },
+  data() {},
   methods: {
-    toggleDarkMode() {}
+    toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
   }
 };
 </script>
