@@ -8,14 +8,14 @@
 
 <script>
 export default {
-  name: 'Name',
+  name: "Name",
   props: {
     msg: String
   },
-  data () {
+  data() {
     return {
       count: 0
-    }
+    };
   }
-}
+};
 </script>
