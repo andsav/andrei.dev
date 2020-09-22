@@ -1,0 +1,6 @@
+@function h($from: 1, $to: 6) {
+  @if $from == $to {
+    @return "h#{$from}";
+  }
+  @return "h#{$from}," + h($from + 1, $to);
+}
