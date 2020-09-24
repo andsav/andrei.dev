@@ -15,7 +15,7 @@ $glow: #f77e4d;
   background: url($light-bg) $light;
 
   header,
-  .toggle-icon-wrapper {
+  .toggle-icon {
     backface-visibility: hidden;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     -webkit-backface-visibility: hidden;
@@ -31,7 +31,7 @@ $glow: #f77e4d;
     }
   }
 
-  .toggle-icon-wrapper {
+  .toggle-icon {
     padding: 0.5em;
 
     &:hover .icon {

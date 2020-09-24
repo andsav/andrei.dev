@@ -1,7 +1,7 @@
 <template>
-  <div class="toggle-icon">
+  <div class="toggle-icon-wrapper">
     <span
-      class="toggle-icon-wrapper"
+      class="toggle-icon"
       @mouseenter="toggleActive"
       @mouseleave="toggleActive"
       @mousedown="onToggleDarkMode"
@@ -24,11 +24,11 @@ export default {
   components: { SunIcon, MoonIcon, Icon },
   props: {
     darkMode: {
-      type: Boolean
+      type: Boolean,
     },
     onToggleDarkMode: {
-      type: Function
-    }
+      type: Function,
+    },
   },
   setup(props) {
     const active = ref(false);
@@ -41,21 +41,25 @@ export default {
     return {
       active,
       iconComponent,
-      toggleActive
+      toggleActive,
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss">
-.toggle-icon {
+.toggle-icon-wrapper {
   position: fixed;
   bottom: 0;
   right: 0;
   padding: 2em 4em;
   z-index: 999;
 
-  .toggle-icon-wrapper {
+  @media only screen and (max-width: 1024px) {
+    padding: 1em;
+  }
+
+  .toggle-icon {
     display: inline-block;
     margin: 0;
     cursor: pointer;

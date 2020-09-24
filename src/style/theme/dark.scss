@@ -10,7 +10,7 @@ $dark-navy: #001427;
 @mixin dark-theme {
   background: url($dark-bg) $dark;
 
-  .toggle-icon-wrapper {
+  .toggle-icon {
     padding: 0.8em;
     background-color: rgba(darken($dark, 0.1), 0.7);
     border-radius: 50%;

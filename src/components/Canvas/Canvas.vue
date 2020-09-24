@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import debounce from "lodash/debounce";
 import el from "../../mixins/el.vue";
 
 export default {
@@ -13,8 +14,16 @@ export default {
   mixins: [el],
   props: {
     getNearestPoint: {
-      type: Function
-    }
+      type: Function,
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", debounce(this.resize, 150));
+    this.provider.context = this.$refs["c"].getContext("2d");
+    this.resize();
+  },
+  unmounted() {
+    window.removeEventListener("resize", debounce(this.resize, 150));
   },
   data() {
     return {
@@ -23,18 +32,16 @@ export default {
         mouseY: -1,
         context: null,
         points: [],
-        decayPoints: this.decayPoints
-      }
+        decayPoints: this.decayPoints,
+        width: 0,
+        height: 0,
+      },
     };
   },
   provide() {
     return {
-      provider: this.provider
+      provider: this.provider,
     };
-  },
-  mounted() {
-    this.provider.context = this.$refs["c"].getContext("2d");
-    this.resize();
   },
   methods: {
     mousemove(e) {
@@ -48,8 +55,10 @@ export default {
     },
     resize() {
       const canvas = this.$refs["c"];
-      canvas.width = canvas.style.width = canvas.parentElement.clientWidth;
-      canvas.height = canvas.style.height = canvas.parentElement.clientHeight;
+      this.provider.width = canvas.width = canvas.style.width =
+        canvas.parentElement.clientWidth;
+      this.provider.height = canvas.height = canvas.style.height =
+        canvas.parentElement.clientHeight;
     },
     addPoint() {
       if (this.provider.mouseX === -1 || this.provider.mouseY === -1) {
@@ -64,7 +73,7 @@ export default {
       this.provider.points.push({
         x,
         y,
-        life: 42
+        life: 42,
       });
     },
     decayPoints() {
@@ -74,8 +83,8 @@ export default {
       this.provider.points = this.provider.points.filter(
         ({ life }) => life > 0
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -3,15 +3,13 @@ export default {
   inject: ["provider"],
   props: {
     onPointUpdate: {
-      type: Function
-    }
+      type: Function,
+    },
   },
   data() {
     return {
       ctx: null,
-      width: 0,
-      height: 0,
-      initialized: false
+      initialized: false,
     };
   },
   beforeUnmount() {
@@ -21,8 +19,6 @@ export default {
   render() {
     if (!this.provider.context) return;
     this.ctx = this.provider.context;
-    this.width = this.provider.context.canvas.width;
-    this.height = this.provider.context.canvas.height;
 
     if (!this.initialized) {
       this.init();
@@ -52,8 +48,8 @@ export default {
       requestAnimationFrame(this.animate);
     },
     clear() {
-      this.ctx.clearRect(0, 0, this.width, this.height);
-    }
-  }
+      this.ctx.clearRect(0, 0, this.provider.width, this.provider.height);
+    },
+  },
 };
 </script>
