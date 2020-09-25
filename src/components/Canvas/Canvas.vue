@@ -8,6 +8,7 @@
 <script>
 import debounce from "lodash/debounce";
 import el from "../../mixins/el.vue";
+import { provide, reactive, ref, readonly } from "vue";
 
 export default {
   name: "Canvas",
@@ -17,72 +18,70 @@ export default {
       type: Function,
     },
   },
+  setup() {
+    const canvas = reactive({
+      context: null,
+      width: 0,
+      height: 0,
+      points: [],
+    });
+    const mouse = reactive({
+      x: -1,
+      y: -1,
+    });
+
+    provide("canvas", readonly(canvas));
+    // provide("mouse", readonly(mouse));
+
+    provide("decayPoints", () => {
+      canvas.points.forEach((_, i) => {
+        canvas.points[i].life--;
+      });
+      canvas.points = canvas.points.filter(({ life }) => life > 0);
+    });
+
+    return {
+      canvas,
+      mouse,
+    };
+  },
   mounted() {
+    this.canvas.context = this.$refs["c"].getContext("2d");
     window.addEventListener("resize", debounce(this.resize, 150));
-    this.provider.context = this.$refs["c"].getContext("2d");
     this.resize();
   },
   unmounted() {
     window.removeEventListener("resize", debounce(this.resize, 150));
   },
-  data() {
-    return {
-      provider: {
-        mouseX: -1,
-        mouseY: -1,
-        context: null,
-        points: [],
-        decayPoints: this.decayPoints,
-        width: 0,
-        height: 0,
-      },
-    };
-  },
-  provide() {
-    return {
-      provider: this.provider,
-    };
-  },
   methods: {
     mousemove(e) {
-      this.provider.mouseX = this.getX(e);
-      this.provider.mouseY = this.getY(e);
+      this.mouse.x = this.getX(e);
+      this.mouse.y = this.getY(e);
       this.addPoint();
     },
     mouseout() {
-      this.provider.mouseX = -1;
-      this.provider.mouseY = -1;
+      this.mouse.x = -1;
+      this.mouse.y = -1;
     },
     resize() {
       const canvas = this.$refs["c"];
-      this.provider.width = canvas.width = canvas.style.width =
+      this.canvas.width = canvas.width = canvas.style.width =
         canvas.parentElement.clientWidth;
-      this.provider.height = canvas.height = canvas.style.height =
+      this.canvas.height = canvas.height = canvas.style.height =
         canvas.parentElement.clientHeight;
     },
     addPoint() {
-      if (this.provider.mouseX === -1 || this.provider.mouseY === -1) {
+      if (this.mouse.x === -1 || this.mouse.y === -1) {
         return;
       }
 
-      const { x, y } = this.getNearestPoint(
-        this.provider.mouseX,
-        this.provider.mouseY
-      );
+      const { x, y } = this.getNearestPoint(this.mouse.x, this.mouse.y);
 
-      this.provider.points.push({
+      this.canvas.points.push({
         x,
         y,
         life: 42,
       });
-    },
-    decayPoints() {
-      this.provider.points.forEach((_, i) => {
-        this.provider.points[i].life--;
-      });
-      this.provider.points = this.provider.points.filter(
-        ({ life }) => life > 0
-      );
     },
   },
 };

@@ -22,7 +22,7 @@ export default {
     CanvasRenderer,
     Canvas,
     DarkModeToggle,
-    Name
+    Name,
   },
   setup() {
     const browserDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
@@ -40,12 +40,12 @@ export default {
               [cX - 27, cY - 29],
               [cX - 27, cY + 29],
               [cX + 27, cY - 29],
-              [cX + 27, cY + 29]
+              [cX + 27, cY + 29],
             ]
               .map(([x, y]) => ({
                 x,
                 y,
-                d: Math.sqrt((x - mouseX) ** 2 + (y - mouseY) ** 2)
+                d: Math.sqrt((x - mouseX) ** 2 + (y - mouseY) ** 2),
               }))
               .sort((a, b) => a.d - b.d)[0];
           }
@@ -57,28 +57,36 @@ export default {
               [
                 [cX - 25, cY],
                 [cX, cY - 15],
-                [cX, cY + 15]
+                [cX, cY + 15],
               ],
               [
                 [cX, cY - 15],
                 [cX + 25, cY],
-                [cX, cY + 15]
-              ]
+                [cX, cY + 15],
+              ],
             ];
             triangles = triangles.concat(
-              triangles.map(points => points.map(([x, y]) => [x, y - 30])),
-              triangles.map(points => points.map(([x, y]) => [x, y + 30])),
-              triangles.map(points => points.map(([x, y]) => [x - 25, y + 15])),
-              triangles.map(points => points.map(([x, y]) => [x - 25, y - 15])),
-              triangles.map(points => points.map(([x, y]) => [x + 25, y + 15])),
-              triangles.map(points => points.map(([x, y]) => [x + 25, y - 15]))
+              triangles.map((points) => points.map(([x, y]) => [x, y - 30])),
+              triangles.map((points) => points.map(([x, y]) => [x, y + 30])),
+              triangles.map((points) =>
+                points.map(([x, y]) => [x - 25, y + 15])
+              ),
+              triangles.map((points) =>
+                points.map(([x, y]) => [x - 25, y - 15])
+              ),
+              triangles.map((points) =>
+                points.map(([x, y]) => [x + 25, y + 15])
+              ),
+              triangles.map((points) =>
+                points.map(([x, y]) => [x + 25, y - 15])
+              )
             );
 
             const triangle = triangles[~~(Math.random() * triangles.length)];
 
             return {
               x: triangle.map(([x, y]) => x),
-              y: triangle.map(([x, y]) => y)
+              y: triangle.map(([x, y]) => y),
             };
           }
     );
@@ -119,8 +127,8 @@ export default {
       darkMode,
       toggleDarkMode,
       onPointUpdate,
-      getNearestPoint
+      getNearestPoint,
     };
-  }
+  },
 };
 </script>

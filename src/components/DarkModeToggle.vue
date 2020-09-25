@@ -53,6 +53,7 @@ export default {
   bottom: 0;
   right: 0;
   padding: 2em 4em;
+  border-radius: 50%;
   z-index: 999;
 
   @media only screen and (max-width: 1024px) {

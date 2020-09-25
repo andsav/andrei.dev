@@ -25,8 +25,8 @@ export default {
   props: {
     active: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   watch: {
     active(entering) {
@@ -37,17 +37,17 @@ export default {
           rotation: -4,
           duration: 2,
           transformOrigin: "50% 50%",
-          ease: "bounce"
+          ease: "bounce",
         });
       } else {
         gsap.to(path, {
           rotation: 4,
           duration: 2,
           transformOrigin: "50% 50%",
-          ease: "bounce"
+          ease: "bounce",
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

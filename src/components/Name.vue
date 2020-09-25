@@ -10,12 +10,12 @@
 export default {
   name: "Name",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      count: 0
+      count: 0,
     };
-  }
+  },
 };
 </script>

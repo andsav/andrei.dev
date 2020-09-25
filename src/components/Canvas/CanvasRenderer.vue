@@ -1,55 +1,61 @@
 <script>
+import { inject } from "vue";
+
 export default {
-  inject: ["provider"],
   props: {
     onPointUpdate: {
       type: Function,
     },
   },
-  data() {
-    return {
-      ctx: null,
-      initialized: false,
-    };
-  },
-  beforeUnmount() {
-    cancelAnimationFrame(this.animate);
-  },
   name: "CanvasRenderer",
-  render() {
-    if (!this.provider.context) return;
-    this.ctx = this.provider.context;
+  setup(props) {
+    let initialized = false;
 
-    if (!this.initialized) {
-      this.init();
-    }
-    return true;
-  },
-  methods: {
-    init() {
-      this.initialized = true;
-      this.clear();
-      this.ctx.lineJoin = "round";
+    const canvas = inject("canvas", {
+      context: null,
+      width: 0,
+      height: 0,
+      points: [],
+    });
+    // const mouse = inject("mouse", { x: -1, y: -1 });
+    const decayPoints = inject("decayPoints", () => {});
+
+    const clear = () => {
+      canvas.context.clearRect(0, 0, canvas.width, canvas.height);
+    };
+
+    const animate = () => {
+      clear();
+      decayPoints();
+
+      for (let i = 1; i < canvas.points.length; ++i) {
+        canvas.context.globalAlpha = canvas.points[i].life / 100;
+        props.onPointUpdate(canvas.context, canvas.points[i]);
+      }
+
+      requestAnimationFrame(animate);
+    };
+
+    const init = () => {
+      initialized = true;
+      canvas.context.lineJoin = "round";
+      clear();
 
       if (matchMedia("(pointer:fine)").matches) {
-        this.animate();
+        animate();
       }
-    },
-    animate() {
-      this.clear();
-      this.provider.decayPoints();
+    };
 
-      for (let i = 1; i < this.provider.points.length; ++i) {
-        const point = this.provider.points[i];
-        this.ctx.globalAlpha = point.life / 100;
-        this.onPointUpdate(this.ctx, point);
+    return () => {
+      if (!canvas.context) {
+        return false;
       }
 
-      requestAnimationFrame(this.animate);
-    },
-    clear() {
-      this.ctx.clearRect(0, 0, this.provider.width, this.provider.height);
-    },
+      if (!initialized) {
+        init();
+      }
+      return true;
+    };
   },
 };
 </script>

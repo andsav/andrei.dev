@@ -19,7 +19,7 @@ export default {
         0;
       const rect = e.target.getBoundingClientRect();
       return e.pageY - rect.top - scroll;
-    }
-  }
+    },
+  },
 };
 </script>
