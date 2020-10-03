@@ -29,7 +29,7 @@ export default {
       decayPoints();
 
       for (let i = 1; i < canvas.points.length; ++i) {
-        canvas.context.globalAlpha = canvas.points[i].life / 100;
+        canvas.context.globalAlpha = canvas.points[i].life / 120;
         props.onPointUpdate(canvas.context, canvas.points[i]);
       }
 

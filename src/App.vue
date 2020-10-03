@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <Canvas :get-nearest-point="getNearestPoint">
     <canvas-renderer :on-point-update="onPointUpdate" />
   </Canvas>
@@ -11,7 +12,7 @@
 <script>
 import { ref, computed } from "vue";
 
-import Name from "./components/Name.vue";
+import Header from "./components/Header.vue";
 import DarkModeToggle from "./components/DarkModeToggle.vue";
 import Canvas from "./components/Canvas/Canvas.vue";
 import CanvasRenderer from "./components/Canvas/CanvasRenderer.vue";
@@ -22,7 +23,7 @@ export default {
     CanvasRenderer,
     Canvas,
     DarkModeToggle,
-    Name,
+    Header,
   },
   setup() {
     const browserDarkMode = window.matchMedia("(prefers-color-scheme: dark)")

@@ -8,6 +8,24 @@ $dark-navy: #001427;
 @mixin dark-theme {
   background: url(~/../../assets/dark.png) $dark;
 
+  header {
+    background: rgba(lighten($dark, 0.8), 0.66);
+    color: $beige;
+
+    h1 {
+      transition: text-shadow 0.3s ease-in;
+      margin-bottom: 0.25em;
+
+      &:hover {
+        text-shadow: 1px 0 20px $fawn;
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
   .toggle-icon {
     padding: 0.8em;
     background-color: rgba(darken($dark, 0.1), 0.7);
