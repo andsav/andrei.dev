@@ -18,35 +18,12 @@
 </template>
 
 <script>
-import gsap from "gsap";
-
 export default {
   name: "MoonIcon",
   props: {
     active: {
       type: Boolean,
       default: false,
-    },
-  },
-  watch: {
-    active(entering) {
-      const { path } = this.$refs;
-
-      if (entering) {
-        gsap.to(path, {
-          rotation: -4,
-          duration: 2,
-          transformOrigin: "50% 50%",
-          ease: "bounce",
-        });
-      } else {
-        gsap.to(path, {
-          rotation: 4,
-          duration: 2,
-          transformOrigin: "50% 50%",
-          ease: "bounce",
-        });
-      }
     },
   },
 };

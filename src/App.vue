@@ -32,7 +32,7 @@ export default {
     const getNearestPoint = computed(() =>
       darkMode.value
         ? (mouseX, mouseY) => {
-            const cX = ~~(mouseX / 54) * 54 + 27;
+            const cX = ~~(mouseX / 54) * 54 + 26;
             const cY = ~~(mouseY / 58) * 58 + 29;
 
             return [
@@ -51,7 +51,7 @@ export default {
           }
         : (mouseX, mouseY) => {
             const cX = 16 + ~~(mouseX / 47) * 47;
-            const cY = 15 + ~~(mouseY / 30) * 30;
+            const cY = 12 + ~~(mouseY / 30) * 30;
 
             let triangles = [
               [
@@ -96,9 +96,9 @@ export default {
         ? (ctx, point) => {
             ctx.fillStyle = "#20457c";
             ctx.beginPath();
-            ctx.moveTo(point.x - 27, point.y);
+            ctx.moveTo(point.x - 26, point.y);
             ctx.lineTo(point.x, point.y - 15);
-            ctx.lineTo(point.x + 27, point.y);
+            ctx.lineTo(point.x + 26, point.y);
             ctx.lineTo(point.x, point.y + 15);
             ctx.closePath();
             ctx.fill();
@@ -121,6 +121,7 @@ export default {
     const toggleDarkMode = () => {
       darkMode.value = !darkMode.value;
       document.body.classList.toggle("dark");
+      document.body.classList.toggle("light");
     };
 
     return {

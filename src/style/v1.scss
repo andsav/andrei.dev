@@ -21,8 +21,20 @@ body {
     @include dark-theme;
   }
 
-  &:not(.dark) {
+  &.light {
     @include light-theme;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    @include dark-theme;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body:not(.dark) {
+    @include dark-theme;
   }
 }
 
