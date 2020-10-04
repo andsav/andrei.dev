@@ -16,8 +16,16 @@ $dark-navy: #001427;
       margin-bottom: 0.25em;
     }
 
-    h2 {
-      margin-top: 0;
+    nav {
+      margin: 1.25em auto 1.75em auto;
+      width: 100%;
+
+      li {
+        &:hover,
+        &.active {
+          color: $blue;
+        }
+      }
     }
   }
 

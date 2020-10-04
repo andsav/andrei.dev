@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header :active-page="activePage" :on-set-active-page="setActivePage" />
   <Canvas :get-nearest-point="getNearestPoint">
     <canvas-renderer :on-point-update="onPointUpdate" />
   </Canvas>
@@ -11,6 +11,8 @@
 
 <script>
 import { ref, computed } from "vue";
+
+import routes from "./routes.js";
 
 import onPointHover from "./helpers/onPointHover.js";
 import nearestPoint from "./helpers/nearestPoint.js";
@@ -29,17 +31,27 @@ export default {
     Header,
   },
   setup() {
+    /*
+      Router
+     */
+    const activeRoute = ref(window.location.pathname);
+    const activePage = computed(
+      () => routes[activeRoute.value] || { name: null, component: null }
+    );
+    const setActivePage = (page) => {
+      history.pushState({}, null, page === activeRoute.value ? "/" : page);
+      activeRoute.value = window.location.pathname;
+    };
+    window.onpopstate = () => {
+      activeRoute.value = window.location.pathname;
+    };
+
+    /*
+      Dark mode toggle
+     */
     const browserDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
       .matches;
     const darkMode = ref(browserDarkMode);
-
-    const getNearestPoint = computed(() =>
-      darkMode.value ? nearestPoint.darkMode : nearestPoint.lightMode
-    );
-
-    const onPointUpdate = computed(() =>
-      darkMode.value ? onPointHover.darkMode : onPointHover.lightMode
-    );
 
     if (browserDarkMode) {
       document.body.classList.add("dark");
@@ -51,7 +63,20 @@ export default {
       document.body.classList.toggle("light");
     };
 
+    /*
+      Background canvas interactions
+     */
+    const getNearestPoint = computed(() =>
+      darkMode.value ? nearestPoint.darkMode : nearestPoint.lightMode
+    );
+
+    const onPointUpdate = computed(() =>
+      darkMode.value ? onPointHover.darkMode : onPointHover.lightMode
+    );
+
     return {
+      activePage,
+      setActivePage,
       darkMode,
       toggleDarkMode,
       onPointUpdate,

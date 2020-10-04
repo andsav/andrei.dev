@@ -65,4 +65,11 @@ $glow: #f77e4d;
       left: 15%;
     }
   }
+
+  @media only screen and (max-width: 800px) {
+    nav {
+      margin-top: 1.25em;
+      width: 100%;
+    }
+  }
 }
