@@ -1,7 +1,7 @@
 <template>
   <header>
-    <h1>Hello World</h1>
-    <h2>Lorem Ipsum</h2>
+    <h1>Andrei Savin</h1>
+    <p>Hello World</p>
   </header>
 </template>
 

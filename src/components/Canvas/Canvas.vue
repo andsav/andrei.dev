@@ -7,12 +7,12 @@
 
 <script>
 import debounce from "lodash/debounce";
-import el from "../../mixins/el.vue";
-import { provide, reactive, ref, readonly } from "vue";
+import hover from "../../mixins/hover.vue";
+import { provide, reactive, readonly } from "vue";
 
 export default {
   name: "Canvas",
-  mixins: [el],
+  mixins: [hover],
   props: {
     getNearestPoint: {
       type: Function,

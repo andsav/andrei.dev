@@ -13,18 +13,14 @@ $glow: #f77e4d;
   background: url(~/../../assets/light.png) $light;
 
   header {
-    left: 15%;
-    width: 70%;
     color: $dark-blue;
-    text-align: left;
     padding: 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    left: 5%;
+    width: 90%;
 
     h1,
     h2 {
-      margin: auto 0.25em;
+      margin: auto 0.1em;
     }
   }
 
@@ -57,5 +53,16 @@ $glow: #f77e4d;
     color: $dark-blue;
     font-weight: bolder;
     transition: color, 2s, ease-in-out;
+  }
+
+  @media only screen and (min-width: 800px) {
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      width: 70%;
+      left: 15%;
+    }
   }
 }

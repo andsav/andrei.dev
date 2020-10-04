@@ -1,0 +1,5 @@
+<ifModule mod_headers.c>
+    <filesMatch ".(js|css|ttf|woff)$">
+        Header add "Cache-Control" "max-age=31536000"
+    </filesMatch>
+</ifModule>

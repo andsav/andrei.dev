@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "el",
+  name: "hover",
   methods: {
     getX(e) {
       const scroll =

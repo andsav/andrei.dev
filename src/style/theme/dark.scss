@@ -1,7 +1,6 @@
 $dark: #262626;
-$beige: #ecdfbd;
-$navy: #20457c;
-$dark: #262626;
+$white: #c0d3ef;
+$blue: #20457c;
 $fawn: #e6aa68;
 $dark-navy: #001427;
 
@@ -10,15 +9,11 @@ $dark-navy: #001427;
 
   header {
     background: rgba(lighten($dark, 0.8), 0.66);
-    color: $beige;
+    color: $white;
 
     h1 {
       transition: text-shadow 0.3s ease-in;
       margin-bottom: 0.25em;
-
-      &:hover {
-        text-shadow: 1px 0 20px $fawn;
-      }
     }
 
     h2 {
@@ -47,10 +42,6 @@ $dark-navy: #001427;
     color: $fawn;
     transition: color, 0.8s, ease-out;
     animation: spin 10s linear infinite;
-
-    &:hover {
-      color: darken($beige, 10%);
-    }
   }
 }
 
