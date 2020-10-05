@@ -1,5 +1,8 @@
 <template>
   <Header :active-page="activePage" :on-set-active-page="setActivePage" />
+  <Page :open="activePage.name !== 'home'">
+    <component :is="activePage.component" />
+  </Page>
   <Canvas :get-nearest-point="getNearestPoint">
     <canvas-renderer :on-point-update="onPointUpdate" />
   </Canvas>
@@ -18,6 +21,7 @@ import onPointHover from "./helpers/onPointHover.js";
 import nearestPoint from "./helpers/nearestPoint.js";
 
 import Header from "./components/Header.vue";
+import Page from "./components/Page.vue";
 import DarkModeToggle from "./components/DarkModeToggle.vue";
 import Canvas from "./components/Canvas/Canvas.vue";
 import CanvasRenderer from "./components/Canvas/CanvasRenderer.vue";
@@ -25,6 +29,7 @@ import CanvasRenderer from "./components/Canvas/CanvasRenderer.vue";
 export default {
   name: "App",
   components: {
+    Page,
     CanvasRenderer,
     Canvas,
     DarkModeToggle,

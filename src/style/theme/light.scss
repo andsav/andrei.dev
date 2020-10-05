@@ -18,6 +18,19 @@ $glow: #f77e4d;
     left: 5%;
     width: 90%;
 
+    &.open {
+      left: 0;
+      width: 100%;
+      border-radius: 0;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+
+      &:hover {
+        transform: none !important;
+      }
+    }
+
     h1,
     h2 {
       margin: auto 0.1em;
@@ -31,7 +44,11 @@ $glow: #f77e4d;
         margin: auto 0.3em;
         border-radius: 8px;
         background-color: transparent;
-        transition: 100ms background-color ease;
+        transition: 300ms background-color ease;
+
+        &.active {
+          transition: none;
+        }
 
         &:hover,
         &.active {
@@ -77,6 +94,13 @@ $glow: #f77e4d;
     transition: color, 2s, ease-in-out;
   }
 
+  article {
+    background-color: $white;
+    transition: opacity 100ms ease;
+    color: $black;
+    height: 0;
+  }
+
   @media only screen and (min-width: 800px) {
     header {
       display: flex;
@@ -92,6 +116,18 @@ $glow: #f77e4d;
     nav {
       margin-top: 1.25em;
       width: 100%;
+    }
+
+    header.open {
+      padding: 0;
+
+      h1 {
+        margin-top: 0.25em;
+      }
+
+      nav {
+        margin-bottom: 1em;
+      }
     }
   }
 }

@@ -54,8 +54,10 @@ body {
   padding: 0;
   border: 0;
   font-size: 1em;
+  font-weight: 300;
   vertical-align: baseline;
   font-family: $font-normal;
+  overflow-y: hidden;
 
   &.dark {
     @include dark-theme;
@@ -64,6 +66,10 @@ body {
   &.light {
     @include light-theme;
   }
+}
+
+strong {
+  font-weight: 600;
 }
 
 #{h(1,6)} {

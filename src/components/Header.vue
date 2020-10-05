@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ open: activePage.name !== 'home' }">
     <h1>Andrei Savin</h1>
     <nav>
       <ul>
@@ -43,8 +43,12 @@ header {
   width: 100%;
   margin: auto;
   text-align: center;
-  transition: left 1s ease;
   user-select: none;
+  transition: left, width, top 200ms ease;
+
+  &.open {
+    top: 0;
+  }
 
   h1 {
     font-size: 2.5em;
