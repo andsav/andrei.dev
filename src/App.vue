@@ -49,12 +49,14 @@ export default {
     /*
       Dark mode toggle
      */
-    const browserDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
+    const browserDarkMode = !!window.matchMedia("(prefers-color-scheme: dark)")
       .matches;
     const darkMode = ref(browserDarkMode);
 
     if (browserDarkMode) {
       document.body.classList.add("dark");
+    } else {
+      document.body.classList.add("light");
     }
 
     const toggleDarkMode = () => {

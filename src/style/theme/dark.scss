@@ -8,7 +8,7 @@ $dark-navy: #001427;
   background: url(~/../../assets/dark.png) $dark;
 
   header {
-    background: rgba(lighten($dark, 0.8), 0.66);
+    background: lighten($dark, 0.8);
     color: $white;
 
     h1 {
@@ -21,9 +21,15 @@ $dark-navy: #001427;
       width: 100%;
 
       li {
+        font-weight: 500;
+        padding: 0.25em 0.75em;
+        margin: auto 0.3em;
+        border-radius: 8px;
+        transition: 300ms background-color ease;
+
         &:hover,
         &.active {
-          color: $blue;
+          background-color: $blue;
         }
       }
     }

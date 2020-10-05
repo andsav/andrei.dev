@@ -32,6 +32,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/roboto/roboto-v20-latin-500.eot");
+  src: local("Roboto Medium"), local("Roboto-Medium"),
+    url("/fonts/roboto/roboto-v20-latin-500.eot?#iefix")
+      format("embedded-opentype"),
+    url("/fonts/roboto/roboto-v20-latin-500.woff2") format("woff2"),
+    url("/fonts/roboto/roboto-v20-latin-500.woff") format("woff"),
+    url("/fonts/roboto/roboto-v20-latin-500.ttf") format("truetype"),
+    url("/fonts/roboto/roboto-v20-latin-500.svg#Roboto") format("svg");
+}
+
 $font-header: "Nunito", sans-serif;
 $font-normal: "Roboto", serif;
 
@@ -49,18 +63,6 @@ body {
 
   &.light {
     @include light-theme;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body:not(.light) {
-    @include dark-theme;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body:not(.dark) {
-    @include dark-theme;
   }
 }
 

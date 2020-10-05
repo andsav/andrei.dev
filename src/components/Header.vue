@@ -4,13 +4,13 @@
     <nav>
       <ul>
         <li
-          :class="{ active: activePage.name === 'about' }"
-          @click="onSetActivePage('/about')"
+          v-for="page in pages"
+          :key="page"
+          :class="{ active: activePage.name === page }"
+          @click="onSetActivePage(`/${page}`)"
         >
-          about
+          {{ page }}
         </li>
-        <li>code</li>
-        <li>contact</li>
       </ul>
     </nav>
   </header>
@@ -27,6 +27,11 @@ export default {
       type: Function,
     },
   },
+  data() {
+    return {
+      pages: ["about", "code", "contact"],
+    };
+  },
 };
 </script>
 
@@ -39,10 +44,10 @@ header {
   margin: auto;
   text-align: center;
   transition: left 1s ease;
+  user-select: none;
 
   h1 {
     font-size: 2.5em;
-    user-select: none;
   }
 
   nav {

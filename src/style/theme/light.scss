@@ -22,6 +22,28 @@ $glow: #f77e4d;
     h2 {
       margin: auto 0.1em;
     }
+
+    nav {
+      font-weight: 300;
+
+      li {
+        padding: 0.25em 0.75em;
+        margin: auto 0.3em;
+        border-radius: 8px;
+        background-color: transparent;
+        transition: 100ms background-color ease;
+
+        &:hover,
+        &.active {
+          background-color: $soft;
+          color: $black;
+        }
+
+        &:before {
+          content: "/";
+        }
+      }
+    }
   }
 
   header,
