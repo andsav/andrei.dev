@@ -12,12 +12,18 @@ $dark-navy: #001427;
     color: $white;
 
     &.open {
-      h1 {
-        margin-top: 0.25em;
-      }
-
       nav {
         margin-bottom: 1em;
+      }
+
+      h1 {
+        transition: text-shadow 300ms ease-in-out;
+        margin-top: 0.25em;
+        margin-bottom: 0;
+
+        &:hover {
+          text-shadow: 0 0 10px $blue;
+        }
       }
     }
 
@@ -31,7 +37,6 @@ $dark-navy: #001427;
       width: 100%;
 
       li {
-        font-weight: 500;
         padding: 0.25em 0.75em;
         margin: auto 0.3em;
         border-radius: 8px;
@@ -74,7 +79,7 @@ $dark-navy: #001427;
 
   article {
     background-color: rgba(lighten($dark-navy, 0.2), 0.6);
-    transition: opacity 100ms ease;
+    transition: opacity 300ms ease;
     color: darken($white, 0.6);
 
     &.open {

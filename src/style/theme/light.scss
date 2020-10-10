@@ -29,6 +29,15 @@ $glow: #f77e4d;
       &:hover {
         transform: none !important;
       }
+
+      h1 {
+        margin: 0;
+        transition: text-shadow 300ms ease-in-out;
+
+        &:hover {
+          text-shadow: 0 0 10px $soft;
+        }
+      }
     }
 
     h1,
@@ -37,7 +46,7 @@ $glow: #f77e4d;
     }
 
     nav {
-      font-weight: 300;
+      font-weight: 400;
 
       li {
         padding: 0.25em 0.75em;
@@ -96,7 +105,7 @@ $glow: #f77e4d;
 
   article {
     background-color: $white;
-    transition: opacity 100ms ease;
+    transition: opacity 200ms ease;
     color: $black;
     height: 0;
   }
@@ -123,6 +132,7 @@ $glow: #f77e4d;
 
       h1 {
         margin-top: 0.25em;
+        margin-bottom: 0;
       }
 
       nav {

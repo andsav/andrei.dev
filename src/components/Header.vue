@@ -1,6 +1,6 @@
 <template>
   <header :class="{ open: activePage.name !== 'home' }">
-    <h1>Andrei Savin</h1>
+    <h1 @click="onSetActivePage('/')">Andrei Savin</h1>
     <nav>
       <ul>
         <li
@@ -48,6 +48,12 @@ header {
 
   &.open {
     top: 0;
+
+    h1 {
+      display: inline-block;
+      margin: 0.67em 0;
+      cursor: pointer;
+    }
   }
 
   h1 {

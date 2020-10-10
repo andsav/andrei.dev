@@ -18,6 +18,20 @@ export default {
 <style lang="scss" scoped>
 article {
   opacity: 0;
+  display: grid;
+  grid-template-columns: 1fr min(80ch, 100%) 1fr;
+
+  & > * {
+    grid-column: 2;
+  }
+
+  .stretch {
+    width: 100%;
+    grid-column: 1 / 4;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   &.open {
     opacity: 1;

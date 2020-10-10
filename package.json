@@ -13,17 +13,17 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "~4.5.6",
+    "@vue/cli-plugin-eslint": "~4.5.7",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "eslint": "^7.10.0",
+    "eslint": "^7.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^7.0.0",
+    "eslint-plugin-vue": "^7.0.1",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
-    "sass": "^1.26.11",
-    "sass-loader": "^10.0.2",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.3",
     "vite": "^1.0.0-rc.1"
   },
   "husky": {

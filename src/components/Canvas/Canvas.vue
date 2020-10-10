@@ -48,7 +48,9 @@ export default {
   mounted() {
     this.canvas.context = this.$refs["c"].getContext("2d");
     window.addEventListener("resize", debounce(this.resize, 150));
-    this.resize();
+    setTimeout(() => {
+      this.resize();
+    }, 10);
   },
   unmounted() {
     window.removeEventListener("resize", debounce(this.resize, 150));
@@ -97,6 +99,7 @@ export default {
   canvas {
     background-color: transparent;
     border: none;
+    height: 100vh;
   }
 }
 </style>
