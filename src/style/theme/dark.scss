@@ -69,12 +69,12 @@ $dark-navy: #001427;
         animation-play-state: paused;
       }
     }
-  }
 
-  .icon {
-    color: $fawn;
-    transition: color, 0.8s, ease-out;
-    animation: spin 10s linear infinite;
+    .icon {
+      color: $fawn;
+      transition: color, 0.8s, ease-out;
+      animation: spin 10s linear infinite;
+    }
   }
 
   article {

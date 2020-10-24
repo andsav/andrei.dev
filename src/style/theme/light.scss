@@ -95,12 +95,12 @@ $glow: #f77e4d;
     &:hover .icon {
       color: lighten($dark-blue, 20%);
     }
-  }
 
-  .icon {
-    color: $dark-blue;
-    font-weight: bolder;
-    transition: color, 2s, ease-in-out;
+    .icon {
+      color: $dark-blue;
+      font-weight: bolder;
+      transition: color, 2s, ease-in-out;
+    }
   }
 
   article {

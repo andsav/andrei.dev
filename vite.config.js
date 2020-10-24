@@ -1,6 +1,6 @@
 const config = {
   optimizeDeps: {
-    include: ["lodash/debounce"],
+    include: ["vue", "lodash", "lodash/debounce"],
   },
 };
 
