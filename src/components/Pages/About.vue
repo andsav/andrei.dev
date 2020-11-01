@@ -1,12 +1,15 @@
 <template>
   <div>
     <h2>
-      <span>Hello</span>
+      <span>Hello,</span>
       <Icon size="28">
         <WorldIcon />
       </Icon>
     </h2>
-    <p>I am a full-stack software engineer currently based in San Francisco.</p>
+    <p>
+      I am Andrei, a full-stack software engineer currently based in San
+      Francisco.
+    </p>
     <p>Thanks for visiting my website!</p>
   </div>
 </template>

@@ -85,6 +85,15 @@ $dark-navy: #001427;
     &.open {
       transition-delay: 200ms;
     }
+
+    a {
+      color: $white;
+      transition: opacity 300ms ease-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 }
 

@@ -31,7 +31,6 @@ export default {
     });
 
     provide("canvas", readonly(canvas));
-    // provide("mouse", readonly(mouse));
 
     provide("decayPoints", () => {
       canvas.points.forEach((_, i) => {

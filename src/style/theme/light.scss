@@ -1,8 +1,7 @@
 $light: #dbe2fd;
 $complement: #dbe2fd;
 $white: #fefdfb;
-$blue: #59588b;
-$dark-blue: #302f6e;
+$dark-blue: #4a0084;
 $black: #000b20;
 $softer: #fae596;
 $soft: #f7d34d;
@@ -93,13 +92,13 @@ $glow: #f77e4d;
     padding: 0.5em;
 
     &:hover .icon {
-      color: lighten($dark-blue, 20%);
+      opacity: 0.8;
     }
 
     .icon {
       color: $dark-blue;
       font-weight: bolder;
-      transition: color, 2s, ease-in-out;
+      transition: opacity 300ms ease-in-out;
     }
   }
 
@@ -108,6 +107,15 @@ $glow: #f77e4d;
     transition: opacity 200ms ease;
     color: $black;
     height: 0;
+
+    a {
+      color: $dark-blue;
+      transition: opacity 300ms ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
   @media only screen and (min-width: 800px) {

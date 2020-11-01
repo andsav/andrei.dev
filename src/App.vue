@@ -54,11 +54,15 @@ export default {
     /*
       Dark mode toggle
      */
+    const storedDarkMode = window.localStorage.getItem("darkMode");
     const browserDarkMode = !!window.matchMedia("(prefers-color-scheme: dark)")
       .matches;
-    const darkMode = ref(browserDarkMode);
+    const defaultDarkMode =
+      storedDarkMode != null ? !!+storedDarkMode : browserDarkMode;
 
-    if (browserDarkMode) {
+    const darkMode = ref(defaultDarkMode);
+
+    if (defaultDarkMode) {
       document.body.classList.add("dark");
     } else {
       document.body.classList.add("light");
@@ -68,6 +72,7 @@ export default {
       darkMode.value = !darkMode.value;
       document.body.classList.toggle("dark");
       document.body.classList.toggle("light");
+      window.localStorage.setItem("darkMode", String(+darkMode.value));
     };
 
     /*
