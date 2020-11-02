@@ -1,6 +1,6 @@
 <template>
-  <div class="canvas-wrapper">
-    <canvas ref="c" @mousemove="mousemove" @mouseout="mouseout"></canvas>
+  <div class="canvas-wrapper" :class="open && 'dn'">
+    <canvas ref="c" @mousemove="mousemove" @mouseout="mouseout" />
     <slot></slot>
   </div>
 </template>
@@ -16,6 +16,9 @@ export default {
   props: {
     getNearestPoint: {
       type: Function,
+    },
+    open: {
+      type: Boolean,
     },
   },
   setup() {
@@ -44,6 +47,13 @@ export default {
       mouse,
     };
   },
+  watch: {
+    open(newValue) {
+      if (!newValue) {
+        this.resize();
+      }
+    },
+  },
   mounted() {
     this.canvas.context = this.$refs["c"].getContext("2d");
     window.addEventListener("resize", debounce(this.resize, 150));
@@ -66,10 +76,9 @@ export default {
     },
     resize() {
       const canvas = this.$refs["c"];
-      this.canvas.width = canvas.width = canvas.style.width =
-        canvas.parentElement.clientWidth;
+      this.canvas.width = canvas.width = canvas.style.width = window.innerWidth;
       this.canvas.height = canvas.height = canvas.style.height =
-        canvas.parentElement.clientHeight;
+        window.innerHeight;
     },
     addPoint() {
       if (this.mouse.x === -1 || this.mouse.y === -1) {
@@ -87,8 +96,6 @@ export default {
   },
 };
 </script>
-
-<style></style>
 
 <style lang="scss" scoped>
 .canvas-wrapper {

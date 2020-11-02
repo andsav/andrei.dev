@@ -25,19 +25,12 @@ article {
     grid-column: 2;
   }
 
-  .stretch {
-    width: 100%;
-    grid-column: 1 / 4;
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   &.open {
     opacity: 1;
     padding-top: 8em;
     padding-left: 2em;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
   }
 }
 </style>

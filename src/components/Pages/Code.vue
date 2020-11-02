@@ -3,9 +3,15 @@
     <dl>
       <div v-for="project in projects" :key="project.title">
         <dt class="relative">
-          <strong>{{ project.title }}</strong> ({{ project.year }})
+          <strong>{{ project.title }}</strong>
+          <span class="db di-ns ml0 ml1-ns">({{ project.year }})</span>
           <span class="dib absolute top-0 right-0">
-            <a target="_blank" :href="project.url">
+            <a
+              target="_blank"
+              :href="project.url"
+              title="Project URL"
+              rel="noreferrer"
+            >
               <Icon size="22">
                 <ExternalLinkIcon />
               </Icon>
@@ -16,6 +22,7 @@
               target="_blank"
               :href="project.repo"
               title="Code Repository"
+              rel="noreferrer"
             >
               <Icon size="22">
                 <GithubIcon />
@@ -23,7 +30,7 @@
             </a>
           </span>
         </dt>
-        <dd class="mb4 mt1 ml4">
+        <dd class="mb4 mt1 ml0 ml4-ns">
           <p
             class="mv0"
             v-for="(description, i) in project.description"
@@ -50,7 +57,7 @@ export default {
         {
           url: `${window.location.protocol}//${window.location.host}/`,
           title: "This website",
-          year: "2021",
+          year: "2020",
           description: [
             "Hope you are enjoying it!",
             "Built using Vue.js, tachyons, and HTML Canvas",
@@ -68,7 +75,7 @@ export default {
             "Algorithms visualization: clustering and traveling salesman solver",
             "Built with vanilla JavaScript on the frontend and golang on the backend",
           ],
-          repo: "https://github.com/andsav/webpgp",
+          repo: "https://github.com/andsav/glork",
         },
         {
           url: "https://webpgp.com",
@@ -76,7 +83,7 @@ export default {
           title: "WebPGP",
           description: [
             "Generate throwaway PGP keys, encrypt, decrypt, sign and verify in your browser",
-            "Built with React (although a very obsolete way of writing it)",
+            "Built with React, wrapper around OpenPGP",
           ],
           repo: "https://github.com/andsav/webpgp",
         },
@@ -85,8 +92,8 @@ export default {
           year: "2015-2019",
           title: "Various Hackathon Projects",
           description: [
-            "Time tracker app, genetic algorithm for photo filters, network traffic visualizer,...",
-            "Some written in collaboration with other developers",
+            "Time tracker app, genetic algorithm for photo filters, network traffic visualizer",
+            "Some built in collaboration with other developers",
           ],
         },
       ],

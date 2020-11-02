@@ -1,15 +1,12 @@
 <template>
   <div>
     <h2>
-      <span>Hello,</span>
+      <span class="mr1">Hello,</span>
       <Icon size="28">
         <WorldIcon />
       </Icon>
     </h2>
-    <p>
-      I am Andrei, a full-stack software engineer currently based in San
-      Francisco.
-    </p>
+    <p>I am Andrei, a full-stack software engineer.</p>
     <p>Thanks for visiting my website!</p>
   </div>
 </template>
@@ -26,12 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 h2 {
-  span {
-    margin-right: 7px;
-  }
-  span:nth-child(3) {
-    margin-left: 7px;
-  }
   svg {
     transform: translateY(4px);
   }

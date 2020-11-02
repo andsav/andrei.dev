@@ -3,7 +3,10 @@
   <Page :open="activePage.name !== 'home'">
     <component :is="activePage.component" />
   </Page>
-  <Canvas :get-nearest-point="getNearestPoint">
+  <Canvas
+    :get-nearest-point="getNearestPoint"
+    :open="activePage.name !== 'home'"
+  >
     <canvas-renderer :on-point-update="onPointUpdate" />
   </Canvas>
   <dark-mode-toggle
