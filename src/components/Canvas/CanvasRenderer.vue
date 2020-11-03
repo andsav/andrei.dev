@@ -17,7 +17,6 @@ export default {
       height: 0,
       points: [],
     });
-    // const mouse = inject("mouse", { x: -1, y: -1 });
     const decayPoints = inject("decayPoints", () => {});
 
     const clear = () => {

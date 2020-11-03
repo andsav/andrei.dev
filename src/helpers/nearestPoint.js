@@ -45,8 +45,8 @@ export default {
     const triangle = triangles[~~(Math.random() * triangles.length)];
 
     return {
-      x: triangle.map(([x, y]) => x),
-      y: triangle.map(([x, y]) => y),
+      x: triangle.map(([x, _]) => x),
+      y: triangle.map(([_, y]) => y),
     };
   },
 };
