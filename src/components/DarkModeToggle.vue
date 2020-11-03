@@ -1,7 +1,7 @@
 <template>
-  <div class="toggle-icon-wrapper">
+  <div class="toggle-icon-wrapper fixed bottom-0 right-0">
     <span
-      class="toggle-icon"
+      class="toggle-icon dib ma0 pointer"
       @mouseenter="toggleActive"
       @mouseleave="toggleActive"
       @mousedown="onToggleDarkMode"
@@ -49,21 +49,12 @@ export default {
 
 <style lang="scss">
 .toggle-icon-wrapper {
-  position: fixed;
-  bottom: 0;
-  right: 0;
   padding: 2em 4em;
   border-radius: 50%;
   z-index: 999;
 
   @media only screen and (max-width: 1024px) {
     padding: 1em;
-  }
-
-  .toggle-icon {
-    display: inline-block;
-    margin: 0;
-    cursor: pointer;
   }
 }
 </style>

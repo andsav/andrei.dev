@@ -1,11 +1,6 @@
 <template>
   <svg
-    aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
-    data-icon="globe-americas"
-    class="svg-inline--fa fa-globe-americas fa-w-16"
-    role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 496 512"
   >
@@ -17,6 +12,9 @@
 </template>
 
 <script>
+/*
+Icon by font awesome https://fontawesome.com/license
+ */
 export default {
   name: "WorldIcon",
   props: {

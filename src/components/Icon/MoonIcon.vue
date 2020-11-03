@@ -2,9 +2,6 @@
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
-    data-icon="moon"
-    class="svg-inline--fa fa-moon fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -18,6 +15,9 @@
 </template>
 
 <script>
+/*
+Icon by font awesome https://fontawesome.com/license
+ */
 export default {
   name: "MoonIcon",
   props: {

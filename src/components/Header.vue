@@ -2,11 +2,12 @@
   <header :class="{ open: activePage.name !== 'home' }">
     <h1 @click="onSetActivePage('/')">Andrei Savin</h1>
     <nav>
-      <ul>
+      <ul class="di list pa0">
         <li
           v-for="page in pages"
           :key="page"
           :class="{ active: activePage.name === page }"
+          class="di pa1 pointer"
           @click="onSetActivePage(`/${page}`)"
         >
           {{ page }}
@@ -58,20 +59,6 @@ header {
 
   h1 {
     font-size: 2.5em;
-  }
-
-  nav {
-    ul {
-      display: inline;
-      list-style-type: none;
-      padding: 0;
-
-      li {
-        display: inline;
-        padding: 1em;
-        cursor: pointer;
-      }
-    }
   }
 }
 </style>

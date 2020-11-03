@@ -1,5 +1,5 @@
 <template>
-  <article :class="{ open }" class="f5 lh-copy ph4">
+  <article :class="{ open }" class="f5 lh-copy ph4 o-0">
     <slot />
   </article>
 </template>
@@ -17,7 +17,6 @@ export default {
 
 <style lang="scss" scoped>
 article {
-  opacity: 0;
   display: grid;
   grid-template-columns: 1fr min(80ch, 100%) 1fr;
 
