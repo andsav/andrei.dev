@@ -23,7 +23,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
     "sass-loader": "^11.0.1",
-    "vite": "^1.0.0-rc.1"
+    "vite": "^2.9.13"
   },
   "husky": {
     "hooks": {
